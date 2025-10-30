@@ -1,4 +1,4 @@
-use crate::{error::CursedTakesError, instruction::CursedTakesInstruction};
+use crate::{error::RatioFunError, instruction::RatioFunInstruction};
 use borsh::BorshDeserialize;
 use solana_program::{
     account_info::AccountInfo,
@@ -12,21 +12,21 @@ pub fn process_instruction(
     _accounts: &[AccountInfo],
     instruction_data: &[u8],
 ) -> ProgramResult {
-    let instruction = CursedTakesInstruction::try_from_slice(instruction_data)
-        .map_err(|_| CursedTakesError::InvalidInstruction)?;
+    let instruction = RatioFunInstruction::try_from_slice(instruction_data)
+        .map_err(|_| RatioFunError::InvalidInstruction)?;
 
     match instruction {
-        CursedTakesInstruction::CreatePoll { .. } => {
-            msg!("CreatePoll: not yet implemented");
+        RatioFunInstruction::CreatePoll { .. } => {
+            msg!("ratio.fun CreatePoll: not yet implemented");
         }
-        CursedTakesInstruction::Vote { .. } => {
-            msg!("Vote: not yet implemented");
+        RatioFunInstruction::Vote { .. } => {
+            msg!("ratio.fun Vote: not yet implemented");
         }
-        CursedTakesInstruction::Resolve { .. } => {
-            msg!("Resolve: not yet implemented");
+        RatioFunInstruction::Resolve { .. } => {
+            msg!("ratio.fun Resolve: not yet implemented");
         }
-        CursedTakesInstruction::Claim => {
-            msg!("Claim: not yet implemented");
+        RatioFunInstruction::Claim => {
+            msg!("ratio.fun Claim: not yet implemented");
         }
     }
 

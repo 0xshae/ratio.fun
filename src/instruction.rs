@@ -2,7 +2,7 @@ use borsh::{BorshDeserialize, BorshSerialize};
 use crate::state::Side;
 
 #[derive(BorshSerialize, BorshDeserialize, Clone)]
-pub enum CursedTakesInstruction {
+pub enum RatioFunInstruction {
     CreatePoll {
         question_uri: [u8; 64],
         starts_at_unix_ts: i64,

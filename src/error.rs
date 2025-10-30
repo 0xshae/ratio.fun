@@ -2,7 +2,7 @@ use solana_program::program_error::ProgramError;
 use thiserror::Error;
 
 #[derive(Error, Debug, Copy, Clone)]
-pub enum CursedTakesError {
+pub enum RatioFunError {
     #[error("Invalid instruction")]
     InvalidInstruction,
     #[error("Invalid account data")]
@@ -17,8 +17,8 @@ pub enum CursedTakesError {
     Unauthorized,
 }
 
-impl From<CursedTakesError> for ProgramError {
-    fn from(e: CursedTakesError) -> Self {
+impl From<RatioFunError> for ProgramError {
+    fn from(e: RatioFunError) -> Self {
         ProgramError::Custom(e as u32)
     }
 }
